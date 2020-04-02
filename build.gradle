@@ -7,15 +7,12 @@ version '1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-task fatJar(type: Jar) {
+jar {
     manifest {
         attributes 'Implementation-Title': 'Lines Counter',
                 'Implementation-Version': '1.0',
                 'Main-Class': 'com.avelvi.Main'
     }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 repositories {
