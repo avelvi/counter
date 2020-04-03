@@ -55,4 +55,9 @@ public class StatisticServiceImplTest {
 
 
     }
+
+    @Test
+    public void collectDataNull() throws IOException {
+        assertFalse(statisticService.collectData(null, 0).isPresent());
+    }
 }

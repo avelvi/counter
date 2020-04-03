@@ -42,4 +42,9 @@ public class LinesCounterServiceTest {
         assertEquals(3, counterService.count(text1));
         assertEquals(5, counterService.count(text2));
     }
+    @Test
+    public void countTestNull() {
+
+        assertEquals(0, counterService.count(null));
+    }
 }

@@ -25,7 +25,7 @@ public class StatisticServiceImpl implements StatisticService {
         Data result = null;
         List<Data> children = new LinkedList<>();
 
-        if (Files.isRegularFile(path) && path.toString().endsWith(".java")) {
+        if (Objects.nonNull(path) && Files.isRegularFile(path) && path.toString().endsWith(".java")) {
             String text = "";
             try {
                 text = new String(Files.readAllBytes(path));
@@ -35,7 +35,7 @@ public class StatisticServiceImpl implements StatisticService {
             result = new Data(path.getFileName().toString(), counterService.count(text), level, true);
         }
 
-        if (Files.isDirectory(path)) {
+        if (Objects.nonNull(path) && Files.isDirectory(path)) {
             try {
                 result = new Data(path.getFileName().toString(), 0, level, false);
                 Files
